@@ -6,4 +6,11 @@ Aditup::Application.routes.draw do
              :controllers => {
                :omniauth_callbacks => "omniauth_callbacks"
              }
+
+  namespace "a" do # AccountManager
+    resources :clients
+  end
+
+  namespace "v" do # viewer
+  end
 end

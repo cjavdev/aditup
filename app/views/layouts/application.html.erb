@@ -8,8 +8,11 @@
 </head>
 <body>
   <% if user_signed_in? %>
-  Welcome <%= current_user.email %>!
+  Welcome back Moneymaker! <%= current_user.email %>!
   <%= button_to("Sign Out", "/users/sign_out", :method => :delete) %>
+  <% elsif account_manager_signed_in? %>
+  Welcome back Madmin!! <%= current_account_manager.email %>
+  <%= button_to("Sign Out", "/account_managers/sign_out", :method => :delete) %>
   <% else %>
   <a href="/account_managers/sign_up">I'm an ad agency</a>
   <a href="/users/auth/facebook">I'm a viewer</a>
