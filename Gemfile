@@ -11,7 +11,6 @@ group :assets do
   gem 'font-awesome-sass'
   gem 'handlebars_assets'
 end
-
 gem 'jquery-rails'
 
 group :test do

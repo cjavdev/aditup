@@ -7,8 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if user_signed_in? %>
+  Welcome <%= current_user.email %>!
+  <%= button_to("Sign Out", "/users/sign_out", :method => :delete) %>
+  <% else %>
+  <a href="/account_managers/sign_up">I'm an ad agency</a>
+  <a href="/users/auth/facebook">I'm a viewer</a>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>
