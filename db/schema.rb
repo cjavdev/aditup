@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131213002251) do
+ActiveRecord::Schema.define(:version => 20131213170907) do
 
   create_table "account_managers", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -66,6 +66,12 @@ ActiveRecord::Schema.define(:version => 20131213002251) do
     t.datetime "updated_at",         :null => false
   end
 
+  create_table "profiles", :force => true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "spots", :force => true do |t|
     t.integer  "client_id"
     t.string   "video_url"
@@ -74,6 +80,20 @@ ActiveRecord::Schema.define(:version => 20131213002251) do
     t.integer  "paid_views_left"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+  end
+
+  create_table "trait_joins", :force => true do |t|
+    t.integer  "trait_id"
+    t.integer  "traitable_id"
+    t.string   "traitable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "traits", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -94,5 +114,29 @@ ActiveRecord::Schema.define(:version => 20131213002251) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "vid_infos", :force => true do |t|
+    t.string   "video_id"
+    t.string   "provider"
+    t.string   "title"
+    t.string   "duration"
+    t.date     "date"
+    t.string   "thumbnail_small"
+    t.string   "thumbnail_medium"
+    t.string   "thumbnail_large"
+    t.string   "embed_url"
+    t.string   "embed_code"
+    t.string   "width"
+    t.string   "height"
+    t.string   "keywords"
+    t.string   "video_owner"
+    t.string   "view_count"
+    t.string   "url"
+    t.integer  "spot_id"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.binary   "data"
+    t.text     "description"
+  end
 
 end

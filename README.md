@@ -4,12 +4,8 @@ Self Serve Advertiser Flow
 
 email and password
 qualify them as an agency
-One Agency can have multiple Account Managers 
-One Account Manager can have multiple clients 
-One Client can have multiple spots
 
 Buy Process
-
 Client name
 Where (youtube/upload), Title
 advertiser category (something thats verified)
@@ -52,30 +48,3 @@ limit to 5.
 limit number of tabs open
 NOTE: look up official youtube count threshold/length of view Big Question 1 2/3MM users 10 ads/month
 
-1000 users
-
-Advertiser Flow
-
-Media Placement
-upload
-Build associations and rabl
-
-Advertisement
-
-user
-YouTube Link
-AdvertisementTrait
-
-advertisment_id
-trait_id
-Trait
-
-name
-ViewerProfile
-
-name
-user_id
-ProfileTrait
-
-viewer_prifile_id
-trait_id
