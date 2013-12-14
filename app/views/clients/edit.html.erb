@@ -1,0 +1,9 @@
+<h1>Edit <%= @client.name %></h1>
+
+<form action="<%= client_url(@client) %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="put" />
+  <label for="client_name">Name</label><br />
+  <input type="text" name="client[name]" id="client_name" value="<%= @client.name %>" /><br />
+  <input type="submit" value="Update Client">
+</form>

@@ -1,0 +1,14 @@
+<h1>New Spot</h1>
+
+<form action="<%= client_spots_url(current_client.id) %>" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="spot_video_url">Video URL</label><br />
+  <input type="text" name="spot[video_url]" id="spot_video_url" value="<%= @spot.video_url %>" /><br />
+  <label for="spot_traits">Categories</label><br />
+  <input type="text" name="spot[traits]" id="spot_traits" /><br />
+
+  <label for="spot_demographic">Demographic</label><br />
+  <input type="text" name="spot[demographic]" id="spot_demographic" /><br />
+
+  <input type="submit" name="Create Spot" />
+</form>

@@ -1,0 +1,9 @@
+<h1>Create Client</h1>
+
+<form action="/a/clients" method="post" accept-charset="utf-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label for="client_name">Name</label><br />
+  <input type="text" name="client[name]" id="client_name" value="" /><br />
+
+  <input type="submit" value="Create Client" />
+</form>
