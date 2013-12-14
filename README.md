@@ -1,6 +1,7 @@
-Self Serve Advertiser Flow
-0. I'm an advertiser button
-0. Signup Login (not with facebook)
+# Self Serve Advertiser Flow
+
+0.  I'm an advertiser button
+0.  Signup Login (not with facebook)
 
 email and password
 qualify them as an agency
