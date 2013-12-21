@@ -26,12 +26,9 @@
 #  description      :text
 #
 
-class VidInfo < ActiveRecord::Base
-  attr_accessible :date, :description, :duration,
-           :embed_code, :embed_url, :height, :keywords,
-           :provider, :thumbnail_large, :thumbnail_medium,
-           :thumbnail_small, :title, :url, :video_id,
-           :video_owner, :view_count, :width, :spot_id
-  validates :spot, :presence => true
-  belongs_to :spot
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :vid_info do
+  end
 end

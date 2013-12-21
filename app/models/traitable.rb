@@ -8,7 +8,7 @@ module Traitable
   end
 
   def trait_count_le
-    errors.add(:traits, "too many") if traits.length > 5
+    errors.add(:traits, 'too many') if traits.length > 5
   end
 
   module ClassMethods

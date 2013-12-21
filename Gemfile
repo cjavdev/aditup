@@ -10,11 +10,22 @@ group :assets do
   gem 'bootstrap-sass', '~> 3.0.2.0'
   gem 'font-awesome-sass'
   gem 'handlebars_assets'
+  gem 'jquery-rails'
 end
-gem 'jquery-rails'
+
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'factory_girl_rails'
+  gem 'guard-rspec', require: false
+end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'shoulda-matchers'
 end
 
 group :development do
@@ -23,6 +34,7 @@ group :development do
   gem 'letter_opener'
   gem 'debugger'
   gem 'quiet_assets'
+  gem 'annotate'
 end
 
 gem 'video_info'

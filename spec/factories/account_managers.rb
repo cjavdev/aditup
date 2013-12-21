@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: account_managers
 #
 #  id                     :integer          not null, primary key
 #  email                  :string(255)      default(""), not null
@@ -13,25 +13,25 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string(255)
+#  failed_attempts        :integer          default(0), not null
+#  unlock_token           :string(255)
+#  locked_at              :datetime
+#  agency_id              :integer          not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  name                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable
+# Read about factories at https://github.com/thoughtbot/factory_girl
 
-  validate :ensure_profile!, :on => :create
-  validates :profile, :presence => true
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
-
-  has_many :authorizations
-  has_one :profile
-
-  def ensure_profile!
-    return true if !!self.profile
-    self.profile = Profile.new
+FactoryGirl.define do
+  factory :account_manager do
+    name { Faker::Name.name }
+    email { Faker::Internet.email }
+    password "password"
+    password_confirmation "password"
   end
 end

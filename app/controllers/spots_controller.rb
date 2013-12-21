@@ -1,5 +1,7 @@
 class SpotsController < ApplicationController
+  before_filter :authenticate_account_manager!
   before_filter :require_current_client!
+
   include SpotsHelper
 
   def index

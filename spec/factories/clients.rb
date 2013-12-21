@@ -9,9 +9,9 @@
 #  updated_at         :datetime         not null
 #
 
-class Client < ActiveRecord::Base
-  attr_accessible :account_manager_id, :name
-  validates :account_manager, :presence => true
-  belongs_to :account_manager
-  has_many :spots
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :client do
+  end
 end

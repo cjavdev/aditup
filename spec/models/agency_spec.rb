@@ -8,8 +8,10 @@
 #  updated_at :datetime         not null
 #
 
-class Agency < ActiveRecord::Base
-  attr_accessible :name
-  validates :name, :uniqueness => true
-  has_many :account_managers
+require 'spec_helper'
+
+describe Agency do
+  it { should validate_uniqueness_of(:name) }
+  it { should allow_mass_assignment_of(:name) }
+  it { should have_many(:account_managers) }
 end

@@ -9,9 +9,11 @@
 #  updated_at         :datetime         not null
 #
 
-class Client < ActiveRecord::Base
-  attr_accessible :account_manager_id, :name
-  validates :account_manager, :presence => true
-  belongs_to :account_manager
-  has_many :spots
+require 'spec_helper'
+
+describe Client do
+  it { should allow_mass_assignment_of(:account_manager_id) }
+  it { should allow_mass_assignment_of(:account_manager_id) }
+  it { should validate_presence_of(:account_manager) }
+  it { should belong_to(:account_manager) }
 end

@@ -2,13 +2,51 @@
 
 <form action="<%= client_spots_url(current_client.id) %>" method="post" accept-charset="utf-8">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-  <label for="spot_video_url">Video URL</label><br />
-  <input type="text" name="spot[video_url]" id="spot_video_url" value="<%= @spot.video_url %>" /><br />
-  <label for="spot_traits">Categories</label><br />
-  <input type="text" name="spot[traits]" id="spot_traits" /><br />
+  <label for="spot_video_url">Video URL</label><br>
+  <input type="text" name="spot[video_url]" id="spot_video_url" value="<%= @spot.video_url %>">
 
-  <label for="spot_demographic">Demographic</label><br />
-  <input type="text" name="spot[demographic]" id="spot_demographic" /><br />
+  <br>
+  <label for="spot_traits">Categories</label><br>
+  <input type="text" name="spot[traits]" id="spot_traits"><br>
 
-  <input type="submit" name="Create Spot" />
+  <h3>Demographic</h3>
+  <label for="start_age">Age From</label><br>
+  <input type="number" min="0" max="99" name="demographic[start_age]" id="start_age" /><br>
+
+  <label for="end_age">To</label><br>
+  <input type="number" min="0" max="99" name="demographic[end_age]" id="end_age"><br>
+
+  <br>
+  <label for="gender_male">Male</label>
+  <input type="radio" name="demographic[gender]" value="male" id="gender_male"><br>
+  <label for="gender_female">Female</label>
+  <input type="radio" name="demographic[gender]" value="female" id="gender_female"><br>
+  <label for="gender_both">Both</label>
+  <input type="radio" name="demographic[gender_both]" id="gender_both" value="both">
+
+  <br>
+  <label for="">Marital Status</label><br>
+  <select name="demographic[marital_status]" id="marital_status">
+    <option value=""></option>
+    <option value="single">Single</option>
+    <option value="married">Married</option>
+    <option value="divorced">Divorced</option>
+    <option value="widowed">Widowed</option>
+    <option value="relationship">In a relationship</option>
+    <option value="partnership">Domestic Partnership</option>
+  </select>
+
+  <br>
+  <label for="">Education</label><br>
+  <select name="demographic[education]" id="education">
+    <option value=""></option>
+    <option value="none">None</option>
+    <option value="hs">High School</option>
+    <option value="somecollege">Some College</option>
+    <option value="college">College</option>
+    <option value="advanced">Advanced</option>
+  </select>
+
+  <br>
+  <input type="submit" value="Create Spot"><br>
 </form>

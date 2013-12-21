@@ -8,8 +8,9 @@
 #  updated_at :datetime         not null
 #
 
-class Agency < ActiveRecord::Base
-  attr_accessible :name
-  validates :name, :uniqueness => true
-  has_many :account_managers
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :agency do
+  end
 end

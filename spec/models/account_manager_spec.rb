@@ -25,18 +25,14 @@
 #  updated_at             :datetime         not null
 #
 
-class AccountManager < ActiveRecord::Base
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable
+require 'spec_helper'
 
-  attr_accessible :email,
-                  :password,
-                  :agency_id,
-                  :password_confirmation,
-                  :remember_me
-
-  validates :agency, :presence => true
-  belongs_to :agency
-  has_many :clients
+describe AccountManager do
+  it { should allow_mass_assignment_of(:email) }
+  it { should allow_mass_assignment_of(:password) }
+  it { should allow_mass_assignment_of(:remember_me) }
+  it { should allow_mass_assignment_of(:agency_id) }
+  it { should validate_presence_of(:agency) }
+  it { should belong_to(:agency) }
+  it { should have_many(:clients) }
 end

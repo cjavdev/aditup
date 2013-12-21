@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: spots
+#
+#  id              :integer          not null, primary key
+#  client_id       :integer
+#  video_url       :string(255)
+#  view_value      :float
+#  buy_value       :float
+#  paid_views_left :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class Spot < ActiveRecord::Base
   attr_accessible :buy_value,
                   :client_id,
@@ -13,13 +27,11 @@ class Spot < ActiveRecord::Base
 
   belongs_to :client
   has_many :traits
-
   has_many :spot_views
-
   has_one :_info,
           :primary_key => :id,
           :foreign_key => :spot_id,
-          :class_name => "VidInfo",
+          :class_name => 'VidInfo',
           :dependent => :destroy
 
   delegate :date, :description, :duration,

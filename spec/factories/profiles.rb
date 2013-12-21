@@ -8,9 +8,9 @@
 #  updated_at :datetime         not null
 #
 
-class Profile < ActiveRecord::Base
-  include Traitable
-  attr_accessible :user_id
-  validates :user, :presence => true
-  belongs_to :user
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :profile do
+  end
 end

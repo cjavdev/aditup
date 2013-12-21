@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: agencies
+# Table name: traits
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,8 +8,9 @@
 #  updated_at :datetime         not null
 #
 
-class Agency < ActiveRecord::Base
-  attr_accessible :name
-  validates :name, :uniqueness => true
-  has_many :account_managers
+# Read about factories at https://github.com/thoughtbot/factory_girl
+
+FactoryGirl.define do
+  factory :trait do
+  end
 end

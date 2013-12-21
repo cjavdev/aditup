@@ -8,9 +8,9 @@
 #  updated_at :datetime         not null
 #
 
-class Profile < ActiveRecord::Base
-  include Traitable
-  attr_accessible :user_id
-  validates :user, :presence => true
-  belongs_to :user
+require 'spec_helper'
+
+describe Profile do
+  it { should allow_mass_assignment_of(:user_id) }
+  it { should validate_presence_of(:user) }
 end

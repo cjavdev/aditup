@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: agencies
+# Table name: dmas
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,8 +8,8 @@
 #  updated_at :datetime         not null
 #
 
-class Agency < ActiveRecord::Base
+class Dma < ActiveRecord::Base
   attr_accessible :name
-  validates :name, :uniqueness => true
-  has_many :account_managers
+
+  has_many :demographics
 end

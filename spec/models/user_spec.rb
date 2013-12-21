@@ -18,20 +18,12 @@
 #  name                   :string(255)
 #
 
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :omniauthable
+require 'spec_helper'
 
-  validate :ensure_profile!, :on => :create
-  validates :profile, :presence => true
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me
-
-  has_many :authorizations
-  has_one :profile
-
-  def ensure_profile!
-    return true if !!self.profile
-    self.profile = Profile.new
-  end
+describe User do
+  it { should allow_mass_assignment_of(:email) }
+  it { should allow_mass_assignment_of(:name) }
+  it { should allow_mass_assignment_of(:password) }
+  it { should allow_mass_assignment_of(:password_confirmation) }
+  it { should allow_mass_assignment_of(:remember_me) }
 end
