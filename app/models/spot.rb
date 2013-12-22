@@ -17,7 +17,8 @@ class Spot < ActiveRecord::Base
                   :client_id,
                   :paid_views_left,
                   :video_url,
-                  :view_value
+                  :view_value,
+                  :demographics_attributes
 
   validates :view_value, :presence => true
   validates :paid_views_left, :presence => true,
@@ -27,12 +28,15 @@ class Spot < ActiveRecord::Base
 
   belongs_to :client
   has_many :traits
+  has_many :demographics
   has_many :spot_views
   has_one :_info,
           :primary_key => :id,
           :foreign_key => :spot_id,
           :class_name => 'VidInfo',
           :dependent => :destroy
+
+  accepts_nested_attributes_for :demographics
 
   delegate :date, :description, :duration,
            :embed_code, :embed_url, :height, :keywords,

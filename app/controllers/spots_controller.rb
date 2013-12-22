@@ -1,8 +1,7 @@
 class SpotsController < ApplicationController
+  include SpotsHelper
   before_filter :authenticate_account_manager!
   before_filter :require_current_client!
-
-  include SpotsHelper
 
   def index
     @spots = current_client.spots
@@ -17,9 +16,9 @@ class SpotsController < ApplicationController
   end
 
   def create
-    @spot = current_client.spots.new(params[:client])
+    @spot = current_client.spots.build(params[:spot])
     if @spot.save
-      redirect_to @spot
+      redirect_to client_spot_url(current_client, @spot)
     else
       flash.now[:errors] = @spot.errors.full_messages
       render :new

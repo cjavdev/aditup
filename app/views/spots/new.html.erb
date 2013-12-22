@@ -6,27 +6,40 @@
   <input type="text" name="spot[video_url]" id="spot_video_url" value="<%= @spot.video_url %>">
 
   <br>
-  <label for="spot_traits">Categories</label><br>
-  <input type="text" name="spot[traits]" id="spot_traits"><br>
+
+  <label for="view_value">View Value</label><br>
+  <input type="number" name="spot[view_value]" id="spot_view_value" value="<%= @spot.view_value %>" />
+
+  <br>
+  <label for="paid_views_left">Paid Views Left</label>
+  <input type="number" name="spot[paid_views_left]" id="paid_views_left" value="<%= @spot.paid_views_left %>">
+
+  <br>
+  <label for="buy_value">Buy Size (dollars towards views)</label><br>
+  <input type="number" name="spot[buy_value]" id="spot_buy_value" value="<%= @spot.buy_value %>">
 
   <h3>Demographic</h3>
   <label for="start_age">Age From</label><br>
-  <input type="number" min="0" max="99" name="demographic[start_age]" id="start_age" /><br>
+  <input type="number" min="0" max="99" name="spot[demographics_attributes][0][start_age]" id="start_age" /><br>
 
   <label for="end_age">To</label><br>
-  <input type="number" min="0" max="99" name="demographic[end_age]" id="end_age"><br>
+  <input type="number" min="0" max="99" name="spot[demographics_attributes][0][end_age]" id="end_age"><br>
 
   <br>
   <label for="gender_male">Male</label>
-  <input type="radio" name="demographic[gender]" value="male" id="gender_male"><br>
+  <input type="radio" name="spot[demographics_attributes][0][gender]" value="male" id="gender_male"><br>
   <label for="gender_female">Female</label>
-  <input type="radio" name="demographic[gender]" value="female" id="gender_female"><br>
+  <input type="radio" name="spot[demographics_attributes][0][gender]" value="female" id="gender_female"><br>
   <label for="gender_both">Both</label>
-  <input type="radio" name="demographic[gender_both]" id="gender_both" value="both">
+  <input type="radio" name="spot[demographics_attributes][0][gender_both]" id="gender_both" value="both">
+
+  <br>
+  <label for="number_of_children">Number of Children</label>
+  <input type="number" name="spot[demographics_attributes][0][number_of_children]" id="number_of_children">
 
   <br>
   <label for="">Marital Status</label><br>
-  <select name="demographic[marital_status]" id="marital_status">
+  <select name="spot[demographics_attributes][0][marital_status]" id="marital_status">
     <option value=""></option>
     <option value="single">Single</option>
     <option value="married">Married</option>
@@ -38,7 +51,7 @@
 
   <br>
   <label for="">Education</label><br>
-  <select name="demographic[education]" id="education">
+  <select name="spot[demographics_attributes][0][education]" id="education">
     <option value=""></option>
     <option value="none">None</option>
     <option value="hs">High School</option>
