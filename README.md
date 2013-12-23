@@ -1,6 +1,3 @@
-0.  I'm an advertiser button
-0.  Signup Login (not with facebook)
-
 Buy Process
 Client name
 Where (youtube/upload), Title
@@ -43,4 +40,3 @@ Your personal views.
 limit to 5.
 limit number of tabs open
 NOTE: look up official youtube count threshold/length of view Big Question 1 2/3MM users 10 ads/month
-
