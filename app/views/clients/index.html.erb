@@ -1,9 +1,18 @@
 <h1>Clients</h1>
 
-<ul>
-<% @clients.each do |client| %>
-<li><%= link_to client.name, client  %></li>
-<% end %>
-</ul>
+<table class="table table-condensed table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @clients.each do |client| %>
+    <tr>
+      <td><%= link_to client.name, client  %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to "Add Client", new_client_url %>
