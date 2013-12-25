@@ -8,7 +8,7 @@ Aditup::Application.routes.draw do
              }
 
   scope "a" do # AccountManager
-    resources :clients do
+    resources :clients, :as => :account_clients do
       resources :spots
     end
   end
