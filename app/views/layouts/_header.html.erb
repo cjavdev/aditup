@@ -1,4 +1,5 @@
 <nav class="navbar navbar-default" role="navigation">
+<div class="container">
 <div class="navbar-header">
   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
     <span class="sr-only">Toggle navigation</span>
@@ -10,7 +11,6 @@
 </div>
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
-
   <% if user_signed_in? %>
   <ul class="nav navbar-nav">
     <li><a href="#">View</a></li>
@@ -19,8 +19,6 @@
     <li><%= link_to current_user.email, "#" %></li>
     <li><%= button_to("Sign Out","/users/sign_out", :method => :delete, :class=> "btn btn-default", :form_class => "navbar-form") %></li>
   </ul>
-
-
 
   <% elsif account_manager_signed_in? %>
   <ul class="nav navbar-nav">
@@ -32,13 +30,12 @@
     <li><%= button_to("Sign Out", "/account_managers/sign_out", :method => :delete, :class=> "btn btn-default", :form_class=>"navbar-form") %></li>
   </ul>
 
-
-
   <% else %>
   <ul class="nav navbar-nav navbar-right">
     <li><a href="/users/auth/facebook">Viewer</a></li>
     <li><a href="/account_managers/sign_in">Ad Agency</a></li>
   </ul>
   <% end %>
+</div>
 </div>
 </nav>
